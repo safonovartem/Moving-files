@@ -8,6 +8,8 @@ my_data = ("Data")
 if not os.path.isdir("List of characters"):#Проверка наличия каталога
     os.mkdir("List of characters")#Создание каталога
 
+main_path = "Пути к папке Дата"
+
 SpeedLimit_20 = ["00000_0000"]
 SpeedLimit_30 = ["00001_"]
 SpeedLimit_50 = ["00002_"]
@@ -52,17 +54,9 @@ Roundabout_Circulation = ["00040_"]
 End_of_no_overtaking_zone = ["00041_"]
 End_of_no_overtaking_zone_for_trucks = ["00042_"]
 
-def create_folders_from_list(folder_path, folder_names):#Функция для создания папок
-    for folder in folder_names:
-        if not os.path.exists(f'{folder_path}\\{folder}'):
-            os.mkdir(f'{folder_path}\\{folder}')
+if
 
-def get_subfolder_paths(folder_path) -> list:#Функция получения путей подпапок
-    subfolder_paths = [f.path for f in os.scandir(folder_path) if f.is_dir()]
-
-    return subfolder_paths
-
-def get_file_paths(folder_path) -> list:#Функция для получения пути всех фалов в папке
+def get_file_paths(folder_path) -> list:#Функция для получения пути всех файлов в папке
     file_paths = [f.path for f in os.scandir(folder_path) if not f.is_dir()]
 
     return file_paths
@@ -74,8 +68,8 @@ def get_file_names(folder_path) -> list:#Функция для получени�
     return file_names
 
 def sort_files(folder_path):#Сортируем файлы
-    file_paths = get_file_paths(folder_path)
-    ext_list = list(extensions.items())
+    file_paths = get_file_paths(folder_path)#Получаем все пути фалов
+    #ext_list = list(extensions.items()) Не работает
 
 for file_path in file_paths:#Цикл для каждого пути файла
   extension = file_path.split('.')[-1]
@@ -88,7 +82,7 @@ else:
     print("Файл не существует.") # Распечатать сообщение, если файл не существует
 
 print("% s перемещен в указанное место,% s" % (my_data , new_location))# Распечатать новое расположение файла
-
-
+print(get_file_paths(main_path))
+print(get_file_names(main_path))
 
 
